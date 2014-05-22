@@ -1,0 +1,33 @@
+ <!DOCTYPE html>	
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+<link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/smoothness/jquery-ui.css" media="all">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
+    <script>
+    $(function() {
+        $('.datepick').datepicker({
+		showButtonPanel:true,
+		defaultDate:'-1m',
+		numberOfMonths:3
+	});
+});
+    </script>
+  </head>
+ 
+ <body>
+    <h1>VX_TIMEREPORT</h1>
+<form name="test" method="POST" action="/users">
+
+ <%- body %>
+
+</form>
+
+  </body>
+</html>

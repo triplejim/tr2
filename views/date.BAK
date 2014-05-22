@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>jQuery UI Datepicker - Default functionality</title>
+    <script src="../public/javascripts/jquery-ui-1.10.4.min.js"></script>
+    <script src="../public/javascripts/jquery.ui.core.min.js"></script>
+    <script src="../public/javascripts/jquery.ui.datepicker.min.js"></script>
+    <script src="../public/javascripts/jquery.ui.datepicker-ja.js"></script>
+    <link rel="stylesheet" href="../public/javascripts/base/jquery.ui.all.css" />
+</head>
+<body>
+    <form action="" method="post">
+    <p><input type="text" name="date" id="date" /></p>
+    </form>
+    $(function() {
+    $('#date').datepicker();
+    });
+
+</body>
+</html>

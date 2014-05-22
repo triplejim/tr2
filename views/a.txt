@@ -1,0 +1,45 @@
+<div class="b-box">
+
+	<% if(view!=3){ %>
+	<table border="1">
+	<tr colspan=6>
+	<th>TR申請年月</th>
+	<td><SELECT name="cmb_trDate">
+	<% var y = nowDate.substring(0,4); %>
+	<% var m = nowDate.substring(5,6); %>
+	<OPTION value= 0 selected><%= y %>年<%= m %>月</OPTION>
+	<% for (var i=1 ; i <= 5 ; i++){ %>
+	<% if(m=="1"){m="12";y--;}else{m--} %>
+	<OPTION value= i><%= y %>年<%= m %>月</OPTION>
+	<% } %>
+	</SELECT>
+	</td>
+	</tr>
+	<tr colspan=6><th>TR申請内容</th></tr>
+	<tr colspan=6><th>休日出勤申請</th></tr>
+	<% var kyushutsuArray = new Array(); %>
+	<% kyushutsuArray = kyushutsuStr.split(","); %>
+	<% for (var str in kyushutsuArray){ %>
+	<% var kyArray = new Array(); %>
+	<% kyArray = str.split(";"); %>
+	<tr><th>対象日</th><td><%= kyArray(2) %></td><th>ワークフロー番号</th><td><%= kyArray(0) %></td><th>振替休日取得日</th><td><%= kyArray(1) %></td></tr>
+	<% } %>
+	<tr colspan=6><th>振替休日申請</th></tr>
+	<% var furikaeArray = new Array(); %>
+	<% furikaeArray = furikaeStr.split(","); %>
+	<% for (var str in furikaeArray){ %>
+	<% var frArray = new Array(); %>
+	<% frArray = str.split(";"); %>
+	<tr><th>対象日</th><td><%= frArray(2) %></td><th>ワークフロー番号</th><td><%= frArray(0) %></td><th>休日出勤日</th><td><%= frArray(1) %></td></tr>
+	<% } %>
+	<tr colspan=6><th>有給休暇申請</th></tr>
+	<% var yukyuArray = new Array(); %>
+	<% yukyuArray = yukyuStr.split(","); %>
+	<% for (var str in yukyuArray){ %>
+	<% var ykArray = new Array(); %>
+	<% ykArray = str.split(";"); %>
+	<tr><th>対象日</th><td><%= ykArray(2) %></td><th>ワークフロー番号</th><td><%= ykArray(0) %></td></tr>
+	<% } %>
+	</table>
+	<% } %>	
+</div>

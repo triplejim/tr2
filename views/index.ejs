@@ -1,0 +1,21 @@
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>VX_TIMEREPORT</h1>
+    <h2>検索</h2>
+      
+      <form method="POST" action="/">
+        コード検索: <input type="text" name="searchStr" size="50">
+        <input type="submit" name="cmd_code" value="検索実行">
+	表示のみ<INPUT type="radio" name="visible" value="vonly" checked>
+	すべて<INPUT type="radio" name="visible" value="all">
+	<input type="submit" name="cmd_all" value="全件表示">
+	<input type="submit" name="cmd_addUser" value="ユーザ追加" onClick="window.open('http://localhost:3000/users?id=new',null)">
+      </form>
+  </body>
+</html>

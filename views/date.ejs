@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <script>
+    function changeSelect(){
+		    console.log("aaa");
+	 	    var select = document.getElementById('select');
+		    var options =document.getElementById('select').options;
+		    var value = options.item(select.selectedIndex).value;			    console.log(value);
+	};
+    </script>
+
+</head>  
+<body>
+<form name="test" method="POST">
+    <select id="select" onchange="window.getElementById('select')">
+    <option value="1">あいう</option>
+    <option value="2">えお</option>
+</select>
+<input type="submit" name="cmd_exit" value="終了" onClick="window.close()">
+</form>
+</body>
+</html>

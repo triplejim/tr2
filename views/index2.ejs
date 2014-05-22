@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+ 
+    <h1>VX_TIMEREPORT</h1>
+    <h2>検索結果</h2>
+ 
+<form method="POST" action="/">
+        コード検索: <input type="text" name="searchStr" size="50" value=<%= textS %>>
+        <input type="submit" name="cmd_code" value="検索実行">
+
+	<% if(radioS==1){ %>
+		表示のみ<INPUT type="radio" name="visible" value="vonly" checked>
+		すべて<INPUT type="radio" name="visible" value="all">
+	<% }else{ %>
+		表示のみ<INPUT type="radio" name="visible" value="vonly">
+		すべて<INPUT type="radio" name="visible" value="all" checked>
+	<% } %>
+	<input type="submit" name="cmd_all" value="全件表示">
+	<input type="submit" name="cmd_addUser" value="ユーザ追加" onClick="window.open('http://localhost:3000/users?id=new&str=foo',null)">
+</form>
+
+<P>
+
+<table border="1">
+ <tr>
+<th>社員番号</th>
+<th>社員名</th>
+<th>アカウント</th>
+<th>表示</th>
+ </tr>
+
+ <% for(var i=0;i<rst.length;i++){ %>
+<tr>
+ <td> <a href="http://localhost:3000/users?id=<%= rst[i]['HRID'].replace(/\s+$/, "") %>&str=foo" target="_blank"><%= rst[i]['HRID'].replace(/\s+$/, "") %></a> </td>
+ <td> <%= rst[i]['Name'] %> </td>
+ <td> <%= rst[i]['DomainName'] %> </td>
+ <% if(rst[i]['Visible']==1){ %>
+	<td>☓</td>
+ <% }else{ %>
+	<td>◯</td>
+ <% } %>
+</tr>
+ <% } %>
+ <% if(i==0){ %>
+ 表示できるデータは存在しません
+ <% }else{ %>
+ <%= i %>件
+ <% } %>
+</table>
+  </body>
+</html>

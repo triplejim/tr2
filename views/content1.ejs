@@ -1,0 +1,75 @@
+  <form method="POST" action="/users">
+
+
+
+    <% if(view==1){ %>
+    	<h2>ユーザ詳細</h2>
+    <% }else if(view==2){ %>
+	<h2>ユーザ編集</h2>
+    <% }else{ %>
+	<h2>ユーザ追加</h2>
+    <% } %>
+	<h3><%= msg %></h3>
+
+
+<div class="a-box">
+
+	<table border="1">
+	<tr>
+	<th>社員番号</th>
+	<% if(view==3){ %>
+		<td><input type="text" name="txt_hrid" size="50" value=<%= hrid %>></td>
+	<% }else{ %>
+	<td><%= hrid %></td>
+	<% } %>
+	</tr>
+	<tr>
+	<th>社員名</th>
+	<% if(view==1){ %>
+		<td><%= name %></td>
+	<% }else{ %>
+		<td><input type="text" name="txt_name" size="50" value=<%= name %>></td>
+	<% } %>
+	</tr>
+	<tr>
+	<th>アカウント</th>
+	<% if(view==1){ %>
+		<td><%= domainname %></td>
+	<% }else{ %>
+		<td><input type="text" name="txt_domainname" size="50" value=<%= domainname %>></td>
+	<% } %>
+	</tr>
+	<tr>
+	<th>表示</th>
+	<% if(view==1){ %>
+		<% if(visible==1){ %>
+			<td>☓</td>
+		<% }else{ %>
+			<td>◯</td>
+		<% } %>
+	<% }else{ %>
+		<td><SELECT name="cmb_visible">
+		<% if(visible==1){ %>
+			<OPTION value="0">◯</OPTION>
+			<OPTION value="1" selected>☓</OPTION>
+		<% }else{ %>
+			<OPTION value="0" selected>◯</OPTION>
+			<OPTION value="1">☓</OPTION>
+		<% } %>
+		</SELECT></td>
+	<% } %>
+	</tr></table>
+
+	<% if(view==1){ %>
+ 		<input type="submit" name="cmd_edit" value="編集">
+		<input type="submit" name="cmd_exit" value="終了" onClick="window.close()">
+	<% }else if(view==2){ %>
+		<input type="submit" name="cmd_update" value="更新">
+		<input type="submit" name="cmd_return" value="戻る">
+	<% }else{ %>
+		<input type="submit" name="cmd_insert" value="追加">
+		<input type="submit" name="cmd_exit" value="終了" onClick="window.close()">
+	<% } %>
+
+  </div>
+  </form>
